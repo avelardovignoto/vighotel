@@ -1,15 +1,16 @@
-import Header from "./components/Header"
-import Main from "./components/Main"
-import './style/style.css';
-
+import ResultsPage from "./components/results-page/ResultsPage"
+import SearchPage from "./components/search-page/SearchPage"
+import './components/style/style.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
-
   return (
-    <>
-      <Header />
-      <Main />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={SearchPage} />
+        <Route path="/results" Component={ResultsPage} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
