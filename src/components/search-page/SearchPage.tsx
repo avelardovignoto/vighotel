@@ -24,7 +24,7 @@ function SearchPage() {
       body: JSON.stringify(searchParams)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => handleResponse(data))
     .catch(error => console.log(error))
     .finally(() => console.log('Request finished'));
   }
@@ -38,6 +38,11 @@ function SearchPage() {
     }
 
     roomsSearch(searchParams);
+  }
+
+  function handleResponse(data: any) {
+    localStorage.setItem("rooms", JSON.stringify(data))
+    location.href = "/results"
   }
 
   return (
